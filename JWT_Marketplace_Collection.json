@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "JWT Marketplace API",
+    "_postman_id": "4f61f4e0-22c2-4e76-9371-4bfeadf7c5a2",
+    "description": "Postman collection untuk pengujian Tugas 1 - Integrasi Aplikasi & Enterprise.\nBerisi endpoint login (JWT), items (publik), dan profile (protected).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login - Get JWT Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user1@example.com\",\n  \"password\": \"pass123\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/auth/login",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5000",
+          "path": ["auth", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Items (Public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/items",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5000",
+          "path": ["items"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Profile (Protected)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// Gunakan token dari variable collection",
+              "pm.request.headers.add({ key: 'Authorization', value: 'Bearer ' + pm.collectionVariables.get('token') });"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Nama Baru\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/profile",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5000",
+          "path": ["profile"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}

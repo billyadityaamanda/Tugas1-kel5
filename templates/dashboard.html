@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+      body {
+        background: linear-gradient(135deg, #0b1622, #1b2735);
+        font-family: 'Segoe UI', sans-serif;
+        color: #fff;
+        text-align: center;
+        padding-top: 100px;
+      }
+      h2 {
+        color: #7abaff;
+        font-size: 28px;
+      }
+      p {
+        color: #cdd9e5;
+      }
+      a {
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        padding: 10px 20px;
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      a:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Selamat Datang, {{ user.name }}!</h2>
+    <p>Email: {{ user.email }}</p>
+    <a href="/logout">Logout</a>
+  </body>
+</html>
