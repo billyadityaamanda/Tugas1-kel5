@@ -165,8 +165,8 @@ jwt_marketplace/
                   -Aulia indah nuriaji 102022300187
                   -Aura Haya Azka      102022300104
                   -Billy Aditya Amanda 102022300252
-                  -Noviardha Fitri Yuldhari
-                  -M.Fariz Eka Putra   102022300200
+                  -Noviardha Fitri Yuldhari 102022300274
+                  -M.Fariz Eka Putra   102022300300
 🧩 **Mata Kuliah:** Integrasi Aplikasi & Enterprise
 📅 **Tanggal:** 18 Oktober 2025
 
